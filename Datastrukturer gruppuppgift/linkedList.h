@@ -18,17 +18,17 @@ public:
 		head = nullptr;
 		tail = nullptr;
 	}
-	void AddNodeToFirst(T n)
+	void AddNodeToFirst(T data)
 	{
 		Node *temp = new Node;
-		temp->data = n;
+		temp->data = data;
 		temp->next = head;
 		head = temp;
 	}
-	void AddNodeToEnd(T n)
+	void AddNodeToEnd(T data)
 	{
 		Node* temp = new Node;
-		temp->data = n;
+		temp->data = data;
 		temp->next = nullptr;
 
 		if (head == nullptr)
@@ -42,7 +42,7 @@ public:
 			tail = tail->next;
 		}
 	}
-	void AddNodeToGivenPostition(T data, T n)
+	void AddNodeToGivenPostition(T data, int n)
 	{
 		Node *temp1 = new Node;
 		temp1->data = data;
@@ -59,7 +59,7 @@ public:
 		temp1->next = temp2->next;
 		temp2->next = temp1;
 	}
-	void DeleteNodeToGivenPosition(T n)
+	void DeleteNodeOnGivenPosition(int n)
 	{
 		Node* temp1 = head;
 		if (n == 1) {
@@ -96,3 +96,4 @@ public:
 		return count;
 	}
 };
+
