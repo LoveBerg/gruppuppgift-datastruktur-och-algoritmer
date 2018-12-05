@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
-
-//template <typename T>
+#include <sstream>
 
 template <typename T>
 class LinkedList
@@ -16,23 +15,23 @@ private:
 public:
 	LinkedList()
 	{
-		head = NULL;
-		tail = NULL;
+		head = nullptr;
+		tail = nullptr;
 	}
-	void AddNodeFirst(T n)
+	void AddNodeToFirst(T n)
 	{
 		Node *temp = new Node;
 		temp->data = n;
 		temp->next = head;
 		head = temp;
 	}
-	void AddNodeEnd(T n)
+	void AddNodeToEnd(T n)
 	{
-		Node *temp = new Node;
+		Node* temp = new Node;
 		temp->data = n;
-		temp->next = NULL;
+		temp->next = nullptr;
 
-		if (head == NULL)
+		if (head == nullptr)
 		{
 			head = temp;
 			tail = temp;
@@ -43,9 +42,26 @@ public:
 			tail = tail->next;
 		}
 	}
-	void DeleteNodeAtGivenPosition(T n)
+	void AddNodeToGivenPostition(T data, T n)
 	{
-		Node *temp1 = head;
+		Node *temp1 = new Node;
+		temp1->data = data;
+		temp1->next = nullptr;
+		if (n == 1) {
+			temp1->next = head;
+			head = temp1;
+			return;
+		}
+		Node* temp2 = head;
+		for (int i = 0; i < n - 2; i++) {
+			temp2 = temp2->next;
+		}
+		temp1->next = temp2->next;
+		temp2->next = temp1;
+	}
+	void DeleteNodeToGivenPosition(T n)
+	{
+		Node* temp1 = head;
 		if (n == 1) {
 			head = temp1->next;
 			free(temp1);
@@ -62,24 +78,21 @@ public:
 	void Print()
 	{
 		Node* temp = head;
-		while (temp != NULL) {
-			;
+		while (temp != nullptr) {
 			std::cout << temp->data << "\t";
 			temp = temp->next;
 		}
 		std::cout << std::endl;
 	}
+	int GetSize()
+	{
+		int count{};
+		Node* temp = head;
+		while (temp != nullptr)
+		{
+			++count;
+			temp = temp->next;
+		}
+		return count;
+	}
 };
-
-int main()
-{
-	LinkedList<std::string> a;
-	a.AddNodeFirst("hej");
-	a.AddNodeFirst("hej");
-	LinkedList<int> b;
-	b.AddNodeFirst(1);
-	b.AddNodeFirst(2);
-	b.Print();
-	return 0;
-
-}

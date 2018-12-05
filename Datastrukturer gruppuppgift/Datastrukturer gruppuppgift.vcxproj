@@ -119,6 +119,7 @@
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Queue.cpp" />
     <ClCompile Include="Stack.cpp" />
   </ItemGroup>
