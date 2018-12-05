@@ -19,9 +19,16 @@ public:
 		head = NULL;
 		tail = NULL;
 	}
-	void AddNode(T n)
+	void AddNodeFirst(T n)
 	{
-		Node* temp = new Node;
+		Node *temp = new Node;
+		temp->data = n;
+		temp->next = head;
+		head = temp;
+	}
+	void AddNodeEnd(T n)
+	{
+		Node *temp = new Node;
 		temp->data = n;
 		temp->next = NULL;
 
@@ -36,9 +43,9 @@ public:
 			tail = tail->next;
 		}
 	}
-	void DeleteNode(T n)
+	void DeleteNodeAtGivenPosition(T n)
 	{
-		Node* temp1 = head;
+		Node *temp1 = head;
 		if (n == 1) {
 			head = temp1->next;
 			free(temp1);
@@ -52,15 +59,27 @@ public:
 		temp1->next = temp2->next;
 		free(temp2);
 	}
+	void Print()
+	{
+		Node* temp = head;
+		while (temp != NULL) {
+			;
+			std::cout << temp->data << "\t";
+			temp = temp->next;
+		}
+		std::cout << std::endl;
+	}
 };
 
 int main()
 {
 	LinkedList<std::string> a;
-	a.AddNode("hej");
-	a.AddNode("hej");
+	a.AddNodeFirst("hej");
+	a.AddNodeFirst("hej");
 	LinkedList<int> b;
-	b.AddNode(1);
-	b.AddNode(2);
+	b.AddNodeFirst(1);
+	b.AddNodeFirst(2);
+	b.Print();
 	return 0;
+
 }
