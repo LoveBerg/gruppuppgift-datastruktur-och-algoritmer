@@ -1,21 +1,19 @@
 #pragma once
 #include <iostream>
 
-template <typename T>
-struct node
-{
-	T data;
-	node *next;
-};
+//template <typename T>
 
 template <typename T>
 class LinkedList
 {
 private:
-	struct node *head, *tail;
-
+	struct Node
+	{
+		T data;
+		Node *next;
+	};
+	struct Node *head, *tail;
 public:
-
 	LinkedList()
 	{
 		head = NULL;
@@ -23,7 +21,7 @@ public:
 	}
 	void AddNode(T n)
 	{
-		node *temp = new node;
+		Node* temp = new Node;
 		temp->data = n;
 		temp->next = NULL;
 
@@ -38,13 +36,31 @@ public:
 			tail = tail->next;
 		}
 	}
+	void DeleteNode(T n)
+	{
+		Node* temp1 = head;
+		if (n == 1) {
+			head = temp1->next;
+			free(temp1);
+			return;
+		}
+		int i;
+		for (int i = 0; i < n - 2; i++) {
+			temp1 = temp1->next;
+		}
+		Node* temp2 = temp1->next;
+		temp1->next = temp2->next;
+		free(temp2);
+	}
 };
 
 int main()
 {
-	LinkedList<int> a;
-	a.AddNode(1);
-	a.AddNode(2);
+	LinkedList<std::string> a;
+	a.AddNode("hej");
+	a.AddNode("hej");
+	LinkedList<int> b;
+	b.AddNode(1);
+	b.AddNode(2);
 	return 0;
-
 }
