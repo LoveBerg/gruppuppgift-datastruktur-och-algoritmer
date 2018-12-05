@@ -1,11 +1,11 @@
 #include "Queue.h"
 
-Queue::Queue()
+Queue::Queue() // constructor
 {
 
 }
 
-Queue::~Queue()
+Queue::~Queue() // destructor
 {
 
 }

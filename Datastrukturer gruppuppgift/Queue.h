@@ -3,6 +3,6 @@
 class Queue
 {
 public:
-	Queue();
-	~Queue();
+	Queue(); // constructor
+	~Queue(); // destructor
 };
