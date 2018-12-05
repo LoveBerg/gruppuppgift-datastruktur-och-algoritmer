@@ -95,7 +95,7 @@ int main()
 	int number;
 
 	Queue<string> stringQueue;
-	stringQueue.enqueue("Hej");
+	stringQueue.isEmptyenqueue("Hej");
 	stringQueue.enqueue("Hejdå");
 	stringQueue.destroyQueue();
 
