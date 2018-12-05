@@ -5,5 +5,5 @@ class LinkedList {
 private:
 
 public:
-	
+	gregrege
 };
