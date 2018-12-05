@@ -1,8 +1,20 @@
 #pragma once
+#include <stdbool.h>
+#include <vector>
+
+
+
+
+template <class datatype>
 class Stack
 {
 public:
-	Stack();
-	~Stack();
+	void Pop();
+	void Push(datatype element);
+	datatype* getElement();
+
+private:
+	std::vector<datatype> stackVector;
+
 };
 
