@@ -11,14 +11,15 @@ private:
 		T data;
 		Node *next;
 	};
-	struct Node *head, *tail;
+	Node *head;
+	Node *tail;
 public:
 	LinkedList()
 	{
-		head = nullptr;
-		tail = nullptr;
+		this->head = nullptr;
+		this->tail = nullptr;
 	}
-	void AddNodeToFirst(T data)
+	void AddNodeAtBeginning(T data)
 	{
 		Node *temp = new Node;
 		temp->data = data;
