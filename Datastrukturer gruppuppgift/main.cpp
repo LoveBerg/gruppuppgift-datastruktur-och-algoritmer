@@ -5,11 +5,16 @@
 int main()
 {
 	LinkedList<int> aa;
-	aa.AddNodeAtBeginning(1);
 
-	DoubleLinkedList <int> a;
+	aa.AddNodeToEnd(1);
+	aa.AddNodeToEnd(2);
+	aa.AddNodeToEnd(3);
+	aa.AddNodeToEnd(4);
+	aa.AddNodeToEnd(5);
+	aa.AddNodeToEnd(6);
+	aa.Print();
 
-	std::cout << "hej";
+	std::cout << "";
 
 	return 0;
 }

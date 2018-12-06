@@ -25,23 +25,25 @@ public:
 		temp->data = data;
 		temp->next = head;
 		head = temp;
+		//tail = head->next;
 	}
 	void AddNodeToEnd(T data)
 	{
 		Node *temp = new Node;
 		temp->data = data;
 		temp->next = nullptr;
-
 		if (head == nullptr)
 		{
 			head = temp;
 			tail = temp;
+			return;
 		}
-		else
-		{
-			tail->next = temp;
-			tail = tail->next;
+		Node *temp2 = new Node;
+		temp2 = head;
+		while (temp2->next != nullptr) {
+			temp2 = temp2->next;
 		}
+		temp2->next = temp;
 	}
 	void AddNodeToGivenPostition(T data, int n)
 	{
