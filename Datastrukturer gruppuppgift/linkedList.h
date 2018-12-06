@@ -27,7 +27,7 @@ public:
 	}
 	void AddNodeToEnd(T data)
 	{
-		Node* temp = new Node;
+		Node *temp = new Node;
 		temp->data = data;
 		temp->next = nullptr;
 
@@ -52,32 +52,32 @@ public:
 			head = temp1;
 			return;
 		}
-		Node* temp2 = head;
+		Node *temp2 = head;
 		for (int i = 0; i < n - 2; i++) {
 			temp2 = temp2->next;
 		}
 		temp1->next = temp2->next;
 		temp2->next = temp1;
 	}
-	void DeleteNodeOnGivenPosition(int n)
+	void DeleteNodeAtGivenPosition(int n)
 	{
-		Node* temp1 = head;
+		Node *temp1 = head;
 		if (n == 1) {
 			head = temp1->next;
-			free(temp1);
+			delete temp1;
 			return;
 		}
 		int i;
 		for (int i = 0; i < n - 2; i++) {
 			temp1 = temp1->next;
 		}
-		Node* temp2 = temp1->next;
+		Node *temp2 = temp1->next;
 		temp1->next = temp2->next;
-		free(temp2);
+		delete temp2;
 	}
 	void Print()
 	{
-		Node* temp = head;
+		Node *temp = head;
 		while (temp != nullptr) {
 			std::cout << temp->data << "\t";
 			temp = temp->next;
@@ -87,7 +87,7 @@ public:
 	int GetSize()
 	{
 		int count{};
-		Node* temp = head;
+		Node *temp = head;
 		while (temp != nullptr)
 		{
 			++count;
