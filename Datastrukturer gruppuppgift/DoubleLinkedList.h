@@ -10,10 +10,10 @@ private:
 	{
 		T data;
 		Node *next;
+		Node *prev;
 	};
 	Node *head;
 	Node *tail;
-	Node *prev;
 public:
 	DoubleLinkedList()
 	{
