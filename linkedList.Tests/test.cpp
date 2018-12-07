@@ -1,34 +1,34 @@
 #include "pch.h"
 #include "../Datastrukturer gruppuppgift/linkedList.h"
 
-TEST(TestCaseName, InsertIntToList) {
+TEST(LinkedList, InsertIntToList) {
 	LinkedList<int> test;
-	test.AddNodeAtBeginning(1);
-	test.AddNodeAtBeginning(2);
-	test.AddNodeAtBeginning(3);
-	test.AddNodeAtBeginning(4);
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.InsertFirst(4);
 	test.GetSize();
 	EXPECT_EQ(4, test.GetSize());
 }
-TEST(TestCaseName, InsertFloatToList) {
+TEST(LinkedList, InsertFloatToList) {
 	LinkedList<float> test;
-	test.AddNodeAtBeginning(1);
-	test.AddNodeAtBeginning(2);
-	test.AddNodeAtBeginning(3);
-	test.AddNodeAtBeginning(4);
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.InsertFirst(4);
 	test.GetSize();
 	EXPECT_EQ(4, test.GetSize());
 }
-TEST(TestCaseName, InsertStringToList) {
+TEST(LinkedList, InsertStringToList) {
 	LinkedList<std::string> test;
-	test.AddNodeAtBeginning("Tjenare");
-	test.AddNodeAtBeginning("Mannen");
-	test.AddNodeAtBeginning("Läget");
-	test.AddNodeAtBeginning("Då?");
+	test.InsertFirst("Tjenare");
+	test.InsertFirst("Mannen");
+	test.InsertFirst("Läget");
+	test.InsertFirst("Då?");
 	test.GetSize();
 	EXPECT_EQ(4, test.GetSize());
 }
-TEST(TestCaseName, InsertClassObjectToList) {
+TEST(LinkedList, InsertClassObjectToList) {
 	class Person
 	{
 	public:
@@ -39,16 +39,16 @@ TEST(TestCaseName, InsertClassObjectToList) {
 	Person *p = new Person();
 	p->age = 32;
 	p->name = "Robert";
-	person.AddNodeAtBeginning(*p);
+	person.InsertFirst(*p);
 	person.GetSize();
 	EXPECT_EQ(1, person.GetSize());
 }
-TEST(TestCaseName, GetSizeOfList) {
+TEST(LinkedList, GetSizeOfList) {
 	LinkedList<int> test;
-	test.AddNodeAtBeginning(1);
-	test.AddNodeAtBeginning(2);
-	test.AddNodeAtBeginning(3);
-	test.AddNodeAtBeginning(4);
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.InsertFirst(4);
 	test.GetSize();
 	EXPECT_EQ(3, test.GetSize());
 }

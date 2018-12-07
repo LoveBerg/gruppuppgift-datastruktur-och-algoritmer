@@ -12,22 +12,19 @@ private:
 		Node *next;
 	};
 	Node *head;
-	Node *tail;
 public:
 	LinkedList()
 	{
 		this->head = nullptr;
-		this->tail = nullptr;
 	}
-	void AddNodeAtBeginning(T data)
+	void InsertFirst(T data)
 	{
 		Node *temp = new Node;
 		temp->data = data;
 		temp->next = head;
 		head = temp;
-		//tail = head->next;
 	}
-	void AddNodeToEnd(T data)
+	void InsertEnd(T data)
 	{
 		Node *temp = new Node;
 		temp->data = data;
@@ -35,7 +32,6 @@ public:
 		if (head == nullptr)
 		{
 			head = temp;
-			tail = temp;
 			return;
 		}
 		Node *temp2 = new Node;
@@ -45,12 +41,12 @@ public:
 		}
 		temp2->next = temp;
 	}
-	void AddNodeToGivenPostition(T data, int n)
+	void InsertPosition(T data, int n)
 	{
 		Node *temp1 = new Node;
 		temp1->data = data;
 		temp1->next = nullptr;
-		if (n == 1) {
+		if (n == 0) {
 			temp1->next = head;
 			head = temp1;
 			return;
@@ -62,10 +58,10 @@ public:
 		temp1->next = temp2->next;
 		temp2->next = temp1;
 	}
-	void DeleteNodeAtGivenPosition(int n)
+	void DeletePosition(int n)
 	{
 		Node *temp1 = head;
-		if (n == 1) {
+		if (n == 0) {
 			head = temp1->next;
 			delete temp1;
 			return;
@@ -86,6 +82,21 @@ public:
 			temp = temp->next;
 		}
 		std::cout << std::endl;
+	}
+	int GetNode(int index)
+	{
+		Node *temp = head;
+		int size = GetSize();
+		for (int i = 0; i < size + 1; i++) {
+			if (size == 0)
+				break;
+		}
+		for (int i = 0; i < size; i++) {
+			if (i == index && head != nullptr) {
+				return temp->data;
+			}
+			temp = temp->next;
+		}
 	}
 	int GetSize()
 	{
