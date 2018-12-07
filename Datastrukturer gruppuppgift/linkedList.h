@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <sstream>
+#include <assert.h>
 
 template <typename T>
 class LinkedList
@@ -41,33 +42,33 @@ public:
 		}
 		temp2->next = temp;
 	}
-	void InsertPosition(T data, int n)
+	void InsertPosition(T data, int index)
 	{
 		Node *temp1 = new Node;
 		temp1->data = data;
 		temp1->next = nullptr;
-		if (n == 0) {
+		if (index == 0) {
 			temp1->next = head;
 			head = temp1;
 			return;
 		}
 		Node *temp2 = head;
-		for (int i = 0; i < n - 2; i++) {
+		for (int i = 0; i < index; i++) {
 			temp2 = temp2->next;
 		}
 		temp1->next = temp2->next;
 		temp2->next = temp1;
 	}
-	void DeletePosition(int n)
+	void DeletePosition(int index)
 	{
 		Node *temp1 = head;
-		if (n == 0) {
+		if (index == 0) {
 			head = temp1->next;
 			delete temp1;
 			return;
 		}
 		int i;
-		for (int i = 0; i < n - 2; i++) {
+		for (int i = 0; i < index - 2; i++) {
 			temp1 = temp1->next;
 		}
 		Node *temp2 = temp1->next;
@@ -78,21 +79,23 @@ public:
 	{
 		Node *temp = head;
 		while (temp != nullptr) {
-			std::cout << temp->data << "\t";
+			std::cout << temp->data << std::endl;
 			temp = temp->next;
 		}
 		std::cout << std::endl;
 	}
-	int GetNode(int index)
+	T GetNode(int index)
 	{
-		Node *temp = head;
-		int size = GetSize();
-		for (int i = 0; i < size; i++) {
-			if (i == index && head != nullptr) {
-				return temp->data;
-			}
-			temp = temp->next;
+		Node *current = head;
+		int count{};
+		while (current != nullptr)
+		{
+			if (count == index)
+				return(current->data);
+			count++;
+			current = current->next;
 		}
+		assert(0);
 	}
 	int GetSize()
 	{
