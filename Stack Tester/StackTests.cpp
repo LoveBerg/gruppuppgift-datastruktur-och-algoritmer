@@ -71,61 +71,67 @@ class TestingClass
 {
 public:
 	TestingClass() {
-		this->testFloat = 13.37;
+		this->testDouble = 13.37;
 		this->testInt = 42;
 		this->testString = "korv med broed";
 	}
 private:
+	double testDouble;
 	int testInt;
-	float testFloat;
 	std::string testString;
 };
 
+//
+//class stackFixture : public testing::Test {
+//public:
+//	TestingClass korv;
+//	Stack<TestingClass> ClassStack;
+//	stackFixture() {
+//		 initialization code here
+//	}
+//	void SetUp() {
+//	}
+//	void TearDown() {
+//		 code here will be called just after the test completes
+//		 ok to through exceptions from here if need be
+//	}
+//	~stackFixture() {
+//		 cleanup any pending stuff, but no exceptions allowed
+//	}
+//	 put in any custom data members that you need 
+//};
+//
 
-class stackFixture : public testing::Test {
-public:
-	TestingClass korv;
+
+TEST(ClassStackTests, AddingElementToStack) {
 	Stack<TestingClass> ClassStack;
-	stackFixture() {
-		// initialization code here
-	}
-	void SetUp() {
-	}
-	void TearDown() {
-		// code here will be called just after the test completes
-		// ok to through exceptions from here if need be
-	}
-	~stackFixture() {
-		// cleanup any pending stuff, but no exceptions allowed
-	}
-	// put in any custom data members that you need 
-};
-
-
-
-TEST_F(stackFixture, AddingElementToStack) {
+	TestingClass korv;
 	TestingClass broed;
 	ClassStack.Push(korv);
 	ClassStack.Push(broed);
-	EXPECT_EQ(broed, ClassStack.getElement());
+	EXPECT_EQ(2, ClassStack.getSize());
 }
 
 
 
-TEST_F(stackFixture, PoppingElementsFromStackContaingElements) {
+TEST(ClassStackTests, PoppingElementsFromStackContaingElements) {
+	Stack<TestingClass> ClassStack;
+	TestingClass korv;
 	TestingClass broed;
 	ClassStack.Push(korv);
 	ClassStack.Push(broed);
 	ClassStack.Pop();
-	EXPECT_EQ(broed, ClassStack.getElement());
+	EXPECT_EQ(1, ClassStack.getSize());
 
 }
 
-TEST_F(stackFixture, PoppingElementsFromEmptyStack) {
+TEST(ClassStackTests, PoppingElementsFromEmptyStack) {
+	Stack<TestingClass> ClassStack;
 	EXPECT_THROW(ClassStack.Pop(), std::length_error);
 }
 
-TEST_F(stackFixture, GettingElementFromEmptyIntStack) {
+TEST(ClassStackTests, GettingElementFromEmptyIntStack) {
+	Stack<TestingClass> ClassStack;
 	EXPECT_THROW(ClassStack.getElement(), std::length_error);
 }
 
