@@ -24,12 +24,5 @@ int main()
 	std::cout << aa.GetSize() << std::endl;
 	std::cout << aa.GetNode(4) << std::endl;
 
-	bb.InsertFirst(1);
-	bb.InsertFirst(2);
-	bb.InsertFirst(3);
-	std::cout << bb.GetSize() << std::endl;
 
-	std::cout << "";
-
-	return 0;
 }

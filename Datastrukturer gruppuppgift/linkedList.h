@@ -87,10 +87,6 @@ public:
 	{
 		Node *temp = head;
 		int size = GetSize();
-		for (int i = 0; i < size + 1; i++) {
-			if (size == 0)
-				break;
-		}
 		for (int i = 0; i < size; i++) {
 			if (i == index && head != nullptr) {
 				return temp->data;
