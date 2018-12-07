@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="linkedList.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
