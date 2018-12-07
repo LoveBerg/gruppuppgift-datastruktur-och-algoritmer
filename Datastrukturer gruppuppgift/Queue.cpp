@@ -88,17 +88,17 @@ void Queue<datatype>::destroyQueue()
 	}
 }
 
-int main()
-{
-
-	string word;
-	int number;
-
-	Queue<string> stringQueue;
-	stringQueue.isEmptyenqueue("Hej");
-	stringQueue.enqueue("Hejdå");
-	stringQueue.destroyQueue();
-
-	Queue<int> intQueue;
-
-}
+//int main()
+//{
+//
+//	//string word;
+//	//int number;
+//
+//	//Queue<string> stringQueue;
+//	//stringQueue.isEmptyenqueue("Hej");
+//	//stringQueue.enqueue("Hejdå");
+//	//stringQueue.destroyQueue();
+//
+//	//Queue<int> intQueue;
+//
+//}
