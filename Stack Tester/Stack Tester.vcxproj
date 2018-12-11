@@ -33,6 +33,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="..\Datastrukturer gruppuppgift\linkedList.h" />
     <ClInclude Include="..\Datastrukturer gruppuppgift\Stack.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
