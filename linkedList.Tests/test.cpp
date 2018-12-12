@@ -1,6 +1,34 @@
 #include "pch.h"
 #include "../Datastrukturer gruppuppgift/linkedList.h"
 
+TEST(LinkedList, InsertIntToListAtPostitionAndReturnValue) {
+	LinkedList<int> test;
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.InsertPosition(44, 1);
+	EXPECT_EQ(44, test.GetNode(1));
+}
+TEST(LinkedList, DeleteANodeAtPositionReturnValue) {
+	LinkedList<int> test;
+	test.InsertEnd(1); 
+	test.InsertEnd(2); //Delete
+	test.InsertEnd(3); //Delete
+	test.InsertEnd(4); 
+	test.DeletePosition(2);
+	test.DeletePosition(1);
+	EXPECT_EQ(4, test.GetNode(1));
+}
+TEST(LinkedList, DeleteANodeAtPositionReturnSize) {
+	LinkedList<int> test;
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.DeletePosition(0);
+	test.DeletePosition(0);
+	test.DeletePosition(0);
+	EXPECT_EQ(0, test.GetSize());
+}
 TEST(LinkedList, GetSizeOfList) {
 	LinkedList<int> test;
 	test.InsertFirst(1);
@@ -71,7 +99,6 @@ TEST(LinkedList, InsertClassObjectToListAndReturnValue) {
 	p->age = 32;
 	p->name = "Robert";
 	person.InsertFirst(*p);
-	auto age = person.GetNode(0);
-
-	EXPECT_EQ("Robert", person.GetNode(0));
+	auto personData = person.GetNode(0);
+	EXPECT_EQ(personData.age, person.GetNode(0));
 }
