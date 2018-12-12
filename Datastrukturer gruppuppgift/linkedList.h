@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <assert.h>
+#include <exception>
 
 template <typename T>
 class LinkedList
@@ -44,6 +45,7 @@ public:
 	}
 	void InsertPosition(T data, int index)
 	{
+		if (index > GetSize() - 1) throw std::out_of_range("Out of range");
 		Node *temp1 = new Node;
 		temp1->data = data;
 		temp1->next = nullptr;
@@ -61,13 +63,13 @@ public:
 	}
 	void DeletePosition(int index)
 	{
+		if (head == nullptr) throw std::length_error("List is empty");
 		Node *temp1 = head;
 		if (index == 0) {
 			head = temp1->next;
 			delete temp1;
 			return;
 		}
-		int i;
 		for (int i = 0; i < index - 1; i++) {
 			temp1 = temp1->next;
 		}
@@ -86,6 +88,7 @@ public:
 	}
 	T GetNode(int index)
 	{
+		if (head == nullptr) throw std::length_error("List is empty");
 		Node *current = head;
 		int count{};
 		while (current != nullptr)
@@ -95,7 +98,7 @@ public:
 			count++;
 			current = current->next;
 		}
-		assert(0);
+		//assert(0);
 	}
 	int GetSize()
 	{

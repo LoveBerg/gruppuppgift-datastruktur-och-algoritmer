@@ -12,8 +12,8 @@ TEST(LinkedList, InsertIntToListAtPostitionAndReturnValue) {
 TEST(LinkedList, DeleteANodeAtPositionReturnValue) {
 	LinkedList<int> test;
 	test.InsertEnd(1); 
-	test.InsertEnd(2); //Delete
-	test.InsertEnd(3); //Delete
+	test.InsertEnd(2);
+	test.InsertEnd(3); 
 	test.InsertEnd(4); 
 	test.DeletePosition(2);
 	test.DeletePosition(1);
@@ -87,7 +87,7 @@ TEST(LinkedList, InsertClassObjectToListAndReturnSize) {
 	person.GetSize();
 	EXPECT_EQ(1, person.GetSize());
 }
-TEST(LinkedList, InsertClassObjectToListAndReturnValue) {
+TEST(LinkedList, InsertClassObjectToListAndReturnInt) {
 	class Person
 	{
 	public:
@@ -100,5 +100,38 @@ TEST(LinkedList, InsertClassObjectToListAndReturnValue) {
 	p->name = "Robert";
 	person.InsertFirst(*p);
 	auto personData = person.GetNode(0);
-	EXPECT_EQ(personData.age, person.GetNode(0));
+	EXPECT_EQ(personData.age, 32);
+}
+TEST(LinkedList, InsertClassObjectToListAndReturnString) {
+	class Person
+	{
+	public:
+		int age;
+		std::string name;
+	};
+	LinkedList<Person> person;
+	Person *p = new Person();
+	p->age = 32;
+	p->name = "Robert";
+	person.InsertFirst(*p);
+	auto personData = person.GetNode(0);
+	EXPECT_EQ(personData.name, "Robert");
+}
+TEST(LinkedList, GetSizeFromEmptyList) {
+	LinkedList<int> test;
+
+	EXPECT_EQ(0, test.GetSize());
+}
+TEST(LinkedList, GetNodeFromEmptyList) {
+	LinkedList<int> test;
+
+	EXPECT_THROW(test.GetNode(10), std::length_error);
+}
+TEST(LinkedList, DeleteNodeFromEmptyList) {
+	LinkedList<int> test;
+	EXPECT_THROW(test.DeletePosition(4), std::length_error);
+}
+TEST(LinkedList, InsertIntToListAtPostitionWhenListIsEmpty) {
+	LinkedList<int> test;
+	EXPECT_THROW(test.InsertPosition(44,2), std::out_of_range);
 }

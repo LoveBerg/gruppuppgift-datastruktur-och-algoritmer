@@ -47,32 +47,34 @@ public:
 		temp2->next = temp;
 		temp->prev = temp2;
 	}
-	void InsertPosition(T data, int n)
+	void InsertPosition(T data, int index)
 	{
-		Node *s = new Node;
+		if (index > GetSize() - 1) throw std::out_of_range("Out of range");
 		Node *temp = new Node;
-		s = head;
-		for (int i = 0; i < n - 1; i++)
+		Node *temp2 = new Node;
+		temp2 = head;
+		for (int i = 0; i < index - 1; i++)
 		{
-			s = s->next;
+			temp2 = temp2->next;
 		}
 		temp->data = data;
-		if (s->next == nullptr)
+		if (temp2->next == nullptr)
 		{
-			s->next = temp;
+			temp2->next = temp;
 			temp->next = nullptr;
-			temp->prev = s;
+			temp->prev = temp2;
 		}
 		else
 		{
-			temp->next = s->next;
+			temp->next = temp2->next;
 			temp->next->prev = temp;
-			s->next = temp;
-			temp->prev = s;
+			temp2->next = temp;
+			temp->prev = temp2;
 		}
 	}
 	void DeletePosition(int index) // ej klar kopierad från singel
 	{
+		if (head == nullptr) throw std::length_error("List is empty");
 		Node *temp1 = head;
 		if (index == 0) {
 			head = temp1->next;
@@ -98,6 +100,7 @@ public:
 	}
 	T GetNode(int index)
 	{
+		if (head == nullptr) throw std::length_error("List is empty");
 		Node *current = head;
 		int count{};
 		while (current != nullptr)

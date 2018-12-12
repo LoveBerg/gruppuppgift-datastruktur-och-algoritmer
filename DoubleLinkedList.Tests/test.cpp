@@ -67,19 +67,37 @@ TEST(DoubleLinkedList, InsertClassObjectToListAndReturnSize) {
 	person.GetSize();
 	EXPECT_EQ(1, person.GetSize());
 }
-TEST(DoubleLinkedList, InsertClassObjectToListAndReturnValue) {
-	class Person
-	{
-	public:
-		int age;
-		std::string name;
-	};
-	DoubleLinkedList<Person> person;
-	Person *p = new Person();
-	p->age = 32;
-	p->name = "Robert";
-	person.InsertFirst(*p);
-	auto age = person.GetNode(0);
+//TEST(DoubleLinkedList, InsertClassObjectToListAndReturnValue) {
+//	class Person
+//	{
+//	public:
+//		int age;
+//		std::string name;
+//	};
+//	DoubleLinkedList<Person> person;
+//	Person *p = new Person();
+//	p->age = 32;
+//	p->name = "Robert";
+//	person.InsertFirst(*p);
+//	auto age = person.GetNode(0);
+//
+//	EXPECT_EQ("Robert", person.GetNode(0));
+//}
+TEST(DoubleLinkedList, GetSizeFromEmptyList) {
+	DoubleLinkedList<int> test;
 
-	EXPECT_EQ("Robert", person.GetNode(0));
+	EXPECT_EQ(0, test.GetSize());
+}
+TEST(DoubleLinkedList, GetNodeFromEmptyList) {
+	DoubleLinkedList<int> test;
+
+	EXPECT_THROW(test.GetNode(10), std::length_error);
+}
+TEST(DoubleLinkedList, DeleteNodeFromEmptyList) {
+	DoubleLinkedList<int> test;
+	EXPECT_THROW(test.DeletePosition(4), std::length_error);
+}
+TEST(DoubleLinkedList, InsertIntToListAtPostitionWhenListIsEmpty) {
+	DoubleLinkedList<int> test;
+	EXPECT_THROW(test.InsertPosition(44, 2), std::out_of_range);
 }
