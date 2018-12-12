@@ -1,5 +1,5 @@
-#include "pch.h"
 #include "../Datastrukturer gruppuppgift/DoubleLinkedList.h"
+#include "gtest/gtest.h"
 
 TEST(DoubleLinkedList, InsertIntToListAtPostitionAndReturnValue) {
 	DoubleLinkedList<int> test;

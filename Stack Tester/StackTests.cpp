@@ -1,5 +1,6 @@
-#include "pch.h"
 #include "../Datastrukturer gruppuppgift/Stack.h"
+
+#include "gtest/gtest.h"
 #include <string.h>
 
 //INT STACK TESTS:

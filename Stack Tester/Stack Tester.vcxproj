@@ -25,6 +25,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
+    <ProjectName>Tester</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -33,12 +34,21 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <ItemGroup>
+    <ClInclude Include="..\Datastrukturer gruppuppgift\DoubleLinkedList.h" />
     <ClInclude Include="..\Datastrukturer gruppuppgift\linkedList.h" />
+    <ClInclude Include="..\Datastrukturer gruppuppgift\QueueMedLinkedList.h" />
     <ClInclude Include="..\Datastrukturer gruppuppgift\Stack.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Datastrukturer gruppuppgift\Stack.cpp" />
+    <ClCompile Include="..\DoubleLinkedList.Tests\DoubleLinkedList tester.cpp" />
+    <ClCompile Include="..\linkedList.Tests\LinkedList tester.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\QueueMedLinkedList tester\QueueTests.cpp" />
     <ClCompile Include="StackTests.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

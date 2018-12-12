@@ -1,5 +1,6 @@
-#include "pch.h"
+
 #include "../Datastrukturer gruppuppgift/linkedList.h"
+#include "gtest/gtest.h"
 
 TEST(LinkedList, InsertIntToListAtPostitionAndReturnValue) {
 	LinkedList<int> test;

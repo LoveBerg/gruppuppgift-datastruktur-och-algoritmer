@@ -1,7 +1,6 @@
 #pragma once
 #include <exception>
 #include "linkedList.h"
-#include "../QueueMedLinkedList tester/pch.h"
 
 
 
@@ -33,11 +32,11 @@ void QueueMedLinkedList<datatype>::Push(datatype element) {
 
 template <class datatype>
 datatype QueueMedLinkedList<datatype>::getElement() {
-	if (this->QueueList->GetSize() == 0)
+	if (this->QueueList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	return this->QueueList->GetNode(0);
+	return this->QueueList.GetNode(0);
 }
 template <class datatype>
 int QueueMedLinkedList<datatype>::getSize() {
-	return this->QueueList->GetSize;
+	return this->QueueList.GetSize();
 }

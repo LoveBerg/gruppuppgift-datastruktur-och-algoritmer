@@ -1,5 +1,5 @@
-#include "pch.h"
 #include "../Datastrukturer gruppuppgift/QueueMedLinkedList.h"
+#include "gtest/gtest.h"
 #include <string.h>
 
 //INT QUEUE TESTS:
@@ -26,7 +26,7 @@ TEST(IntQueueTests, PoppingElementsFromEmptyStack) {
 	EXPECT_THROW(intQueue.Pop(), std::length_error);
 }
 
-TEST(IntStackTests, GettingElementFromEptyStack) {
+TEST(IntQueueTests, GettingElementFromEptyStack) {
 	QueueMedLinkedList<int>intQueue;
 	EXPECT_THROW(intQueue.Pop(), std::length_error);
 }

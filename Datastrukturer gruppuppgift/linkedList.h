@@ -4,6 +4,7 @@
 #include <assert.h>
 #include <exception>
 
+
 template <typename T>
 class LinkedList
 {

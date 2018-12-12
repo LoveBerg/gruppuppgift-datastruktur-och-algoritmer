@@ -2,7 +2,7 @@
 //#include <vector>
 #include<exception>
 #include "linkedList.h"
-#include "../Stack Tester/pch.h"
+
 
 
 
@@ -14,7 +14,7 @@ public:
 	void Pop();
 	void Push(datatype element);
 	datatype getElement();
-	//int getSize();
+	int getSize();
 
 private:
 	LinkedList<datatype> stackList;
@@ -26,7 +26,7 @@ template <class datatype>
 void Stack<datatype>::Pop() {
 	if (this->stackList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	this->stackList.DeletePosition(this->stackList.GetSize);
+	this->stackList.DeletePosition(this->stackList.GetSize());
 	//if (this->stackVector.size() == 0)
 	//	throw std::length_error("Stack is empty!");
 	//this->stackVector.pop_back();
@@ -42,16 +42,16 @@ void Stack<datatype>::Push(datatype element) {
 
 template <class datatype>
 datatype Stack<datatype>::getElement() {
-	if (this->stackList->GetSize() == 0)
+	if (this->stackList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	return this->stackList->GetNode(this->stackList->GetSize());
+	return this->stackList.GetNode(this->stackList.GetSize());
 	//if (this->stackVector.size() == 0)
 	//	throw std::length_error("Stack is empty!");
 	//return this->stackVector.back();
 }
 //
-//template <class datatype>
-//int Stack<datatype>::getSize() {
-//
-//	return this->stackVector.size();
-//}
+template <class datatype>
+int Stack<datatype>::getSize() {
+
+	return this->stackList.GetSize();
+}
