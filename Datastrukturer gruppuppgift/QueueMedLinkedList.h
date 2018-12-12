@@ -1,7 +1,7 @@
 #pragma once
 #include <exception>
 #include "linkedList.h"
-#include "../Stack Tester/pch.h"
+#include "../QueueMedLinkedList tester/pch.h"
 
 
 
@@ -16,28 +16,26 @@ public:
 	int getSize();
 private:
 	LinkedList<datatype> QueueList;
-
 };
 
 template <class datatype>
 void QueueMedLinkedList<datatype>::Pop() {
-	if (this->stackList.GetSize() == 0)
+	if (this->QueueList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	this->stackList.DeletePosition(0);
-
+	this->QueueList.DeletePosition(0);
 }
 
 
 template <class datatype>
 void QueueMedLinkedList<datatype>::Push(datatype element) {
-	this->stackList.InsertEnd(element);
+	this->QueueList.InsertEnd(element);
 }
 
 template <class datatype>
 datatype QueueMedLinkedList<datatype>::getElement() {
-	if (this->stackList->GetSize() == 0)
+	if (this->QueueList->GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	return this->stackList->GetNode(0);
+	return this->QueueList->GetNode(0);
 }
 template <class datatype>
 int QueueMedLinkedList<datatype>::getSize() {
