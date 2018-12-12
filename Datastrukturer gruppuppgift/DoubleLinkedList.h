@@ -80,28 +80,32 @@ public:
 	void DeletePosition(int index)
 	{
 		if (head == nullptr) throw std::length_error("List is empty");
-		Node *nodeToRemove = head;
+		Node *nodeToDelete, *temp2, *temp1 = head;
+
 		if (index == 0) {
-			head = nodeToRemove->next;
-			head->prev = nullptr;
-			delete nodeToRemove;
+			nodeToDelete = temp1->next;
+			nodeToDelete->prev = nullptr;
+			head = nodeToDelete;
+			delete temp1;
 			return;
 		}
-		for (int i = 0; i < index - 1; i++) {
-			nodeToRemove = nodeToRemove->next;
+		else
+		{
+			for (int i = 1; i < index; i++)
+				temp1 = temp1->next;
+			if (index == this->GetSize() - 1) {
+				nodeToDelete = temp1->prev;
+				
+				temp1->next = nullptr;
+				delete temp1->next;
+				return;
+			}
+			nodeToDelete = temp1->next;
+			temp2 = nodeToDelete->next;
+			temp1->next = nodeToDelete->next;
+			temp2->prev = temp1;
+			delete nodeToDelete;
 		}
-		Node *temp2 = nodeToRemove->next;
-		Node *temp3 = nodeToRemove->prev;
-		temp3->next = temp2;
-		delete nodeToRemove;
-
-		//if(nodeToRemove->prev != nullptr)
-		//	Node *temp1 = nodeToRemove->prev;
-
-		//Node *temp2 = nodeToRemove->next;
-		//temp1->next = temp2;
-		//temp2->prev = temp1;
-		//delete nodeToRemove;
 	}
 	void Print()
 	{

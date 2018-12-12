@@ -13,7 +13,7 @@ int main()
 	a.InsertEnd(2);
 	a.InsertEnd(3);
 	a.InsertEnd(4);
-	a.DeletePosition(1);
-	//a.Print();
+	a.DeletePosition(3);
+	a.Print();
 
 }
