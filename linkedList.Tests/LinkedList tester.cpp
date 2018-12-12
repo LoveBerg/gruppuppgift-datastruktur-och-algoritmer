@@ -7,8 +7,8 @@ TEST(LinkedList, InsertIntToListAtPostitionAndReturnValue) {
 	test.InsertFirst(1);
 	test.InsertFirst(2);
 	test.InsertFirst(3);
-	test.InsertPosition(44, 1);
-	EXPECT_EQ(44, test.GetNode(1));
+	test.InsertPosition(44, 0);
+	EXPECT_EQ(44, test.GetNode(0));
 }
 TEST(LinkedList, DeleteANodeAtPositionReturnValue) {
 	LinkedList<int> test;
