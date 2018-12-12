@@ -2,9 +2,6 @@
 #include <exception>
 #include "linkedList.h"
 
-
-
-
 template <class datatype>
 class QueueMedLinkedList
 {

@@ -8,12 +8,4 @@
 
 int main()
 {
-	DoubleLinkedList<int> a;
-	a.InsertEnd(1);
-	a.InsertEnd(2);
-	a.InsertEnd(3);
-	a.InsertEnd(4);
-	a.DeletePosition(3);
-	a.Print();
-
 }

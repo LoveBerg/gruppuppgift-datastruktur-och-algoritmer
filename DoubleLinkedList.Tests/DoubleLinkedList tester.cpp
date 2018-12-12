@@ -9,6 +9,26 @@ TEST(DoubleLinkedList, InsertIntToListAtPostitionAndReturnValue) {
 	test.InsertPosition(44, 0);
 	EXPECT_EQ(44, test.GetNode(0));
 }
+TEST(DoubleLinkedList, DeleteANodeAtPositionReturnValue) {
+	DoubleLinkedList<int> test;
+	test.InsertEnd(1);
+	test.InsertEnd(2);
+	test.InsertEnd(3);
+	test.InsertEnd(4);
+	test.DeletePosition(2);
+	test.DeletePosition(1);
+	EXPECT_EQ(4, test.GetNode(1));
+}
+TEST(DoubleLinkedList, DeleteFirstAndDeleteLastNodeAtPositionReturnSize) {
+	DoubleLinkedList<int> test;
+	test.InsertFirst(1);
+	test.InsertFirst(2);
+	test.InsertFirst(3);
+	test.InsertFirst(4);
+	test.DeletePosition(0);
+	test.DeletePosition(2);
+	EXPECT_EQ(2, test.GetSize());
+}
 TEST(DoubleLinkedList, GetSizeOfList) {
 	DoubleLinkedList<int> test;
 	test.InsertFirst(1);

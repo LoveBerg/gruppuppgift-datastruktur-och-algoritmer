@@ -128,7 +128,6 @@ public:
 			count++;
 			current = current->next;
 		}
-		//assert(0);
 	}
 	int GetSize()
 	{

@@ -1,4 +1,3 @@
-
 #include "../Datastrukturer gruppuppgift/linkedList.h"
 #include "gtest/gtest.h"
 
