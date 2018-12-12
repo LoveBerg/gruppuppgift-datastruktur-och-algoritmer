@@ -53,7 +53,7 @@ public:
 			return;
 		}
 		Node *temp2 = head;
-		for (int i = 0; i < index; i++) {
+		for (int i = 0; i < index - 1; i++) {
 			temp2 = temp2->next;
 		}
 		temp1->next = temp2->next;
@@ -68,7 +68,7 @@ public:
 			return;
 		}
 		int i;
-		for (int i = 0; i < index - 2; i++) {
+		for (int i = 0; i < index - 1; i++) {
 			temp1 = temp1->next;
 		}
 		Node *temp2 = temp1->next;
