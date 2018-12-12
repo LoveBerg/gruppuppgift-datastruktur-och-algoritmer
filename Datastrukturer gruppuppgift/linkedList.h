@@ -64,7 +64,7 @@ public:
 	}
 	void DeletePosition(int index)
 	{
-		if (head == nullptr) throw std::length_error("List is empty");
+		if (head == nullptr && index != 0) throw std::length_error("List is empty");
 		Node *temp1 = head;
 		if (index == 0) {
 			head = temp1->next;
