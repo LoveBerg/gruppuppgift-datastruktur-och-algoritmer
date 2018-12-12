@@ -26,7 +26,7 @@ template <class datatype>
 void Stack<datatype>::Pop() {
 	if (this->stackList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	this->stackList.DeletePosition(this->stackList.GetSize());
+	this->stackList.DeletePosition(this->stackList.GetSize()-1);
 	//if (this->stackVector.size() == 0)
 	//	throw std::length_error("Stack is empty!");
 	//this->stackVector.pop_back();
@@ -44,7 +44,7 @@ template <class datatype>
 datatype Stack<datatype>::getElement() {
 	if (this->stackList.GetSize() == 0)
 		throw std::length_error("Stack is empty!");
-	return this->stackList.GetNode(this->stackList.GetSize());
+	return this->stackList.GetNode(this->stackList.GetSize()-1);
 	//if (this->stackVector.size() == 0)
 	//	throw std::length_error("Stack is empty!");
 	//return this->stackVector.back();
